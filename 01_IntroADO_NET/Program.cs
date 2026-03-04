@@ -17,7 +17,7 @@ namespace _01_IntroADO_NET
             con.Open();
             Console.WriteLine("Connected success!!!!");
 
-
+            //insert , update, delete
             #region Execute Non-Query
             //string cmdText = @"insert into Products
             //                values('Snowboard New','winter Equipment',15,15000,'Italy',12000)";
@@ -27,14 +27,12 @@ namespace _01_IntroADO_NET
             //int row = command.ExecuteNonQuery();
             //Console.WriteLine($"Rows affected : {row}");
             #endregion
-
-            #region Execute Scalar
+            #region Execute Scalar ( return one value)
             //string cmdCommand = @"select AVG(Price) from Products";
             //SqlCommand command = new SqlCommand(cmdCommand, con);
             //int res = (int)command.ExecuteScalar();
             //Console.WriteLine($"Average price : {res}");
             #endregion
-
             #region Execute Reader
 
             string cmdCommand = @"SELECT * FROM Products;";
@@ -64,16 +62,6 @@ namespace _01_IntroADO_NET
 
 
             #endregion
-
-
-
-
-
-
-
-
-
-
             //working with database
             con.Close();    
         }
