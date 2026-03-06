@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _02_ConnectedMode
 {
-    internal class Product
+    public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,7 +17,7 @@ namespace _02_ConnectedMode
         public int Price { get; set; }
         public override string ToString()
         {
-            return $"{Name} . {CostPrice}";
+            return $"Name:{Name,10} | Type:{Type,10} | Q:{Quantity,5}| Price: {CostPrice,5}| Producer :{Producer,10}";
         }
     }
 }

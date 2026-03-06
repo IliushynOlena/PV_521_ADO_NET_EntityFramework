@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_IntroADO_NET", "01_Intro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_ConnectedMode", "02_ConnectedMode\02_ConnectedMode.csproj", "{B4CC09BF-DFDB-4E9F-8953-CCE0B836EE05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_WPF_SportShop_UI", "03_WPF_SportShop_UI\03_WPF_SportShop_UI.csproj", "{6E003F54-203A-46BE-A9C6-C9A1493F62FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_DataAccessLayerSportShop", "04_DataAccessLayerSportShop\04_DataAccessLayerSportShop.csproj", "{BB82C5BD-6784-4C0B-993A-397043819AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B4CC09BF-DFDB-4E9F-8953-CCE0B836EE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4CC09BF-DFDB-4E9F-8953-CCE0B836EE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4CC09BF-DFDB-4E9F-8953-CCE0B836EE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E003F54-203A-46BE-A9C6-C9A1493F62FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E003F54-203A-46BE-A9C6-C9A1493F62FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E003F54-203A-46BE-A9C6-C9A1493F62FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E003F54-203A-46BE-A9C6-C9A1493F62FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
