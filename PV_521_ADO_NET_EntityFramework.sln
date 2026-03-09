@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_WPF_SportShop_UI", "03_W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_DataAccessLayerSportShop", "04_DataAccessLayerSportShop\04_DataAccessLayerSportShop.csproj", "{BB82C5BD-6784-4C0B-993A-397043819AC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_EntityFramework", "05_EntityFramework\05_EntityFramework.csproj", "{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB82C5BD-6784-4C0B-993A-397043819AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
