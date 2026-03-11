@@ -21,13 +21,25 @@
             int a = 0;
             int? b = null;
 
-            var flights = dbContext.Flights.Where(f => f.ArrivalCity == "kyiv").OrderBy(f => f.ArrivalTime);
+            var flights = dbContext.Flights.Where(f => f.ArrivalCity == "kyiv")
+                .OrderBy(f => f.ArrivalTime);
             foreach (var flight in flights)
             {
                 Console.WriteLine($"From : {flight.ArrivalCity}. To : {flight.DepartureCity}.\n" +
-                    $"Date : {flight.ArrivalTime}\n ");
+                    $"Date : {flight.ArrivalTime}\n {flight.AirplaneId} ");
             }
 
+
+
+            var airplanes = dbContext.Airplanes
+                .Where(a=> a.MaxCountPassangers < 100)
+                .OrderBy(a=>a.MaxCountPassangers);
+
+
+            foreach (var item in airplanes)
+            {
+                Console.WriteLine($"{item.Id}. {item.Model}. {item.MaxCountPassangers}");
+            }
         }
     }
 }

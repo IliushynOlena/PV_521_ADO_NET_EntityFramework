@@ -13,10 +13,16 @@ namespace _05_EntityFramework
         [MaxLength(100)]
         [Column("FirstName")]
         public string Name { get; set; }
+
         [MaxLength(100)]
         [EmailAddress]
         public string Email { get; set; }
         public DateTime? Birthdate { get; set; }//value type null
+
+       public int Rating { get; set; }
+
+
+
         //null ---> not null
         //not null ---> null
 

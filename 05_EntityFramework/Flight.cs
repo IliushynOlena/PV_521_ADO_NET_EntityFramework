@@ -9,13 +9,21 @@ namespace _05_EntityFramework
 
         [MaxLength(100)]
         public string ArrivalCity { get; set; }
+
         [MaxLength(100)]
         public string DepartureCity { get; set; }
+
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }
 
+
+
+
+
+
         //Relationship type : many to many (*...*)
         public ICollection<Client> Clients { get; set; }
+
 
         //Relationship type : one to many (1...*)
         public Airplane Airplane { get; set; }
