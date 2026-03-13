@@ -18,9 +18,6 @@ namespace _05_EntityFramework
 
 
 
-
-
-
         //Relationship type : many to many (*...*)
         public ICollection<Client> Clients { get; set; }
 
