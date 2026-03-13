@@ -117,7 +117,7 @@ namespace _05_EntityFramework.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Passangers");
+                    b.ToTable("Passangers", (string)null);
 
                     b.HasData(
                         new
