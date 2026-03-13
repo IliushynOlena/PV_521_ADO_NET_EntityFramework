@@ -1,4 +1,6 @@
-﻿namespace _05_EntityFramework
+﻿using _05_EntityFramework.Models;
+
+namespace _05_EntityFramework
 {
     internal class Program
     {

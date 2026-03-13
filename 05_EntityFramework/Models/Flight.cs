@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace _05_EntityFramework
+namespace _05_EntityFramework.Models
 {
     class Flight
     {

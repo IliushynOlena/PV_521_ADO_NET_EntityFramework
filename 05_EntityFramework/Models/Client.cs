@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace _05_EntityFramework
+namespace _05_EntityFramework.Models
 {
     class Client
     {
