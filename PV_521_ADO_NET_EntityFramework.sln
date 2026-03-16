@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_DataAccessLayerSportShop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_EntityFramework", "05_EntityFramework\05_EntityFramework.csproj", "{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_DataAccessAirport", "06_DataAccessAirport\06_DataAccessAirport.csproj", "{9F86E8FB-9ACA-404C-AC79-1C8D51320A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_AirportUI", "07_AirportUI\07_AirportUI.csproj", "{71F810F3-1B1F-49FD-8136-B40FAA65EC26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B11CE90-6700-4B54-A9D7-D26BAD0F0C10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F86E8FB-9ACA-404C-AC79-1C8D51320A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F86E8FB-9ACA-404C-AC79-1C8D51320A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F86E8FB-9ACA-404C-AC79-1C8D51320A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F86E8FB-9ACA-404C-AC79-1C8D51320A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F810F3-1B1F-49FD-8136-B40FAA65EC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F810F3-1B1F-49FD-8136-B40FAA65EC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F810F3-1B1F-49FD-8136-B40FAA65EC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F810F3-1B1F-49FD-8136-B40FAA65EC26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

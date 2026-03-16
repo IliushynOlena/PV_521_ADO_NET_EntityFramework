@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace _05_EntityFramework
 {
-    internal class AirportDbContext: DbContext
+    public class AirportDbContext: DbContext
     {
         //collections
         public DbSet<Client> Clients { get; set; }
@@ -66,6 +66,10 @@ namespace _05_EntityFramework
             modelBuilder.Entity<Client>()
                 .HasMany(c => c.Flights)
                 .WithMany(f => f.Clients);
+
+            //modelBuilder.Entity<Flight>()
+            //    .HasMany(f => f.Clients)
+            //    .WithMany(c => c.Flights);
 
 
             //Initialization
