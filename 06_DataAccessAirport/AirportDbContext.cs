@@ -1,5 +1,6 @@
 ﻿using _05_EntityFramework.Helpers;
 using _05_EntityFramework.Models;
+using _06_DataAccessAirport.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace _05_EntityFramework
         public DbSet<Client> Clients { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Airplane> Airplanes { get; set; }
+        public DbSet<Credential> Credentials { get; set; }
+        public DbSet<ClientFlight> ClientFlights { get; set; }
         public AirportDbContext()
         {
             //this.Database.EnsureDeleted();
@@ -56,6 +59,7 @@ namespace _05_EntityFramework
             modelBuilder.Entity<Flight>()
                 .Property(f=>f.DepartureCity)
                 .HasMaxLength(100);
+            modelBuilder.Entity<Client>().HasKey(c => c.CredentialId);//set primary key
 
             //Relationship 
             modelBuilder.Entity<Flight>()
@@ -63,9 +67,21 @@ namespace _05_EntityFramework
                 .WithMany(a => a.Flights)
                 .HasForeignKey(f => f.AirplaneId);
 
+            //set складений первинний ключ
+            modelBuilder.Entity<ClientFlight>()
+                .HasKey(cf => new { cf.ClientId,cf.FlightId});
             modelBuilder.Entity<Client>()
-                .HasMany(c => c.Flights)
-                .WithMany(f => f.Clients);
+                .HasMany(c => c.ClientFlights)
+                .WithOne(cf=>cf.Client);
+
+            modelBuilder.Entity<Flight>()
+               .HasMany(c => c.ClientFlights)
+               .WithOne(cf => cf.Flight);
+
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.Credential)
+                .WithOne(c => c.Client)
+                .HasForeignKey<Client>(c => c.CredentialId);//set foreign key
 
             //modelBuilder.Entity<Flight>()
             //    .HasMany(f => f.Clients)
@@ -74,8 +90,10 @@ namespace _05_EntityFramework
 
             //Initialization
            modelBuilder.SeedAirplanes();
+           modelBuilder.SeedCredentials();
            modelBuilder.SeedClients();
            modelBuilder.SeedFlights();         
+           modelBuilder.SeedClientFlights();         
           
 
         }

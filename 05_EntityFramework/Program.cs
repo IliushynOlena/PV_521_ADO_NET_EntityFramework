@@ -41,16 +41,16 @@ namespace _05_EntityFramework
 
             var client = dbContext.Clients.Find(1);
             //Reference  Collection
-            dbContext?.Entry(client).Collection(c => c!.Flights).Load();
-            Console.WriteLine($"Name : {client?.Name}. Rating : {client?.Rating}");
-            Console.WriteLine($"Count All flights : {client?.Flights.Count}");
+            //dbContext?.Entry(client).Collection(c => c!.Flights).Load();
+            //Console.WriteLine($"Name : {client?.Name}. Rating : {client?.Rating}");
+            //Console.WriteLine($"Count All flights : {client?.Flights.Count}");
 
-            foreach (var f in client!.Flights)
-            {
+            //foreach (var f in client!.Flights)
+            //{
 
-                Console.WriteLine($"From : {f.ArrivalCity}. To : {f.DepartureCity}.\n" +
-                  $"Date : {f.ArrivalTime}\n ");
-            }
+            //    Console.WriteLine($"From : {f.ArrivalCity}. To : {f.DepartureCity}.\n" +
+            //      $"Date : {f.ArrivalTime}\n ");
+            //}
            
 
 

@@ -1,4 +1,5 @@
 ﻿using _05_EntityFramework.Models;
+using _06_DataAccessAirport.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,15 +24,27 @@ namespace _05_EntityFramework.Helpers
            });
 
         }
+        public static void SeedCredentials(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Credential>().HasData(new Credential[]
+            {
+                new Credential(){ Id = 1, Login = "user1", Password = "12345"},
+                new Credential(){ Id = 2, Login = "user2", Password = "12345"},
+                new Credential(){ Id = 3, Login = "user3", Password = "12345"},
+                new Credential(){ Id = 4, Login = "user4", Password = "12345"},
+                new Credential(){ Id = 5, Login = "user5", Password = "12345"},
+            });
+
+        }
         public static void SeedClients(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Client>().HasData(new Client[]
          {
-               new Client(){ Id = 1,Name = "Vova", Email = "vova@gmail.com", Birthdate = new DateTime(1995,5,14) },
-               new Client(){ Id = 2,Name = "Ira", Email = "ira@gmail.com", Birthdate = new DateTime(2000,5,14) },
-               new Client(){ Id = 3,Name = "Nikita", Email = "nikita@gmail.com", Birthdate = new DateTime(2001,5,14) },
-               new Client(){ Id = 4,Name = "Sasha", Email = "sasha@gmail.com", Birthdate = new DateTime(2003,5,14) },
-               new Client(){ Id = 5,Name = "Dima", Email = "dima@gmail.com", Birthdate = new DateTime(2005,5,14) }
+               new Client(){ CredentialId = 1,Name = "Vova", Email = "vova@gmail.com", Birthdate = new DateTime(1995,5,14) },
+               new Client(){ CredentialId = 2,Name = "Ira", Email = "ira@gmail.com", Birthdate = new DateTime(2000,5,14) },
+               new Client(){ CredentialId = 3,Name = "Nikita", Email = "nikita@gmail.com", Birthdate = new DateTime(2001,5,14) },
+               new Client(){ CredentialId = 4,Name = "Sasha", Email = "sasha@gmail.com", Birthdate = new DateTime(2003,5,14) },
+               new Client(){ CredentialId = 5,Name = "Dima", Email = "dima@gmail.com", Birthdate = new DateTime(2005,5,14) }
          });
 
         }
@@ -49,6 +62,18 @@ namespace _05_EntityFramework.Helpers
                DepartureTime =new DateTime(2026,3,10), AirplaneId = 1 },
 
         });
+
+        }
+        public static void SeedClientFlights(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ClientFlight>().HasData(new ClientFlight[]
+            {
+                new ClientFlight(){ClientId =1, FlightId = 1},
+                new ClientFlight(){ ClientId =2, FlightId = 1},
+                new ClientFlight(){ ClientId =3, FlightId = 1},
+                new ClientFlight(){ ClientId =4, FlightId = 2},
+                new ClientFlight(){ ClientId =5, FlightId = 2},
+            });
 
         }
     }

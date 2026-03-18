@@ -8,7 +8,7 @@ using _05_EntityFramework;
 
 #nullable disable
 
-namespace _05_EntityFramework.Migrations
+namespace _06_DataAccessAirport.Migrations
 {
     [DbContext(typeof(AirportDbContext))]
     partial class AirportDbContextModelSnapshot : ModelSnapshot
@@ -17,27 +17,12 @@ namespace _05_EntityFramework.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.13")
+                .HasAnnotation("ProductVersion", "9.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ClientFlight", b =>
-                {
-                    b.Property<int>("ClientsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FlightsNumber")
-                        .HasColumnType("int");
-
-                    b.HasKey("ClientsId", "FlightsNumber");
-
-                    b.HasIndex("FlightsNumber");
-
-                    b.ToTable("ClientFlight");
-                });
-
-            modelBuilder.Entity("_05_EntityFramework.Airplane", b =>
+            modelBuilder.Entity("_05_EntityFramework.Models.Airplane", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,13 +75,10 @@ namespace _05_EntityFramework.Migrations
                         });
                 });
 
-            modelBuilder.Entity("_05_EntityFramework.Client", b =>
+            modelBuilder.Entity("_05_EntityFramework.Models.Client", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("CredentialId")
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("Birthdate")
                         .HasColumnType("datetime2");
@@ -115,14 +97,14 @@ namespace _05_EntityFramework.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("CredentialId");
 
                     b.ToTable("Passangers", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            CredentialId = 1,
                             Birthdate = new DateTime(1995, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "vova@gmail.com",
                             Name = "Vova",
@@ -130,7 +112,7 @@ namespace _05_EntityFramework.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            CredentialId = 2,
                             Birthdate = new DateTime(2000, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ira@gmail.com",
                             Name = "Ira",
@@ -138,7 +120,7 @@ namespace _05_EntityFramework.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            CredentialId = 3,
                             Birthdate = new DateTime(2001, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nikita@gmail.com",
                             Name = "Nikita",
@@ -146,7 +128,7 @@ namespace _05_EntityFramework.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            CredentialId = 4,
                             Birthdate = new DateTime(2003, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sasha@gmail.com",
                             Name = "Sasha",
@@ -154,7 +136,7 @@ namespace _05_EntityFramework.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            CredentialId = 5,
                             Birthdate = new DateTime(2005, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "dima@gmail.com",
                             Name = "Dima",
@@ -162,7 +144,63 @@ namespace _05_EntityFramework.Migrations
                         });
                 });
 
-            modelBuilder.Entity("_05_EntityFramework.Flight", b =>
+            modelBuilder.Entity("_05_EntityFramework.Models.Credential", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Credentials");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Login = "user1",
+                            Password = "12345"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Login = "user2",
+                            Password = "12345"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Login = "user3",
+                            Password = "12345"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Login = "user4",
+                            Password = "12345"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Login = "user5",
+                            Password = "12345"
+                        });
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Flight", b =>
                 {
                     b.Property<int>("Number")
                         .ValueGeneratedOnAdd()
@@ -234,24 +272,62 @@ namespace _05_EntityFramework.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ClientFlight", b =>
+            modelBuilder.Entity("_06_DataAccessAirport.Models.ClientFlight", b =>
                 {
-                    b.HasOne("_05_EntityFramework.Client", null)
-                        .WithMany()
-                        .HasForeignKey("ClientsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
-                    b.HasOne("_05_EntityFramework.Flight", null)
-                        .WithMany()
-                        .HasForeignKey("FlightsNumber")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("FlightId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClientId", "FlightId");
+
+                    b.HasIndex("FlightId");
+
+                    b.ToTable("ClientFlights");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientId = 1,
+                            FlightId = 1
+                        },
+                        new
+                        {
+                            ClientId = 2,
+                            FlightId = 1
+                        },
+                        new
+                        {
+                            ClientId = 3,
+                            FlightId = 1
+                        },
+                        new
+                        {
+                            ClientId = 4,
+                            FlightId = 2
+                        },
+                        new
+                        {
+                            ClientId = 5,
+                            FlightId = 2
+                        });
                 });
 
-            modelBuilder.Entity("_05_EntityFramework.Flight", b =>
+            modelBuilder.Entity("_05_EntityFramework.Models.Client", b =>
                 {
-                    b.HasOne("_05_EntityFramework.Airplane", "Airplane")
+                    b.HasOne("_05_EntityFramework.Models.Credential", "Credential")
+                        .WithOne("Client")
+                        .HasForeignKey("_05_EntityFramework.Models.Client", "CredentialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Credential");
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Flight", b =>
+                {
+                    b.HasOne("_05_EntityFramework.Models.Airplane", "Airplane")
                         .WithMany("Flights")
                         .HasForeignKey("AirplaneId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -260,9 +336,44 @@ namespace _05_EntityFramework.Migrations
                     b.Navigation("Airplane");
                 });
 
-            modelBuilder.Entity("_05_EntityFramework.Airplane", b =>
+            modelBuilder.Entity("_06_DataAccessAirport.Models.ClientFlight", b =>
+                {
+                    b.HasOne("_05_EntityFramework.Models.Client", "Client")
+                        .WithMany("ClientFlights")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_05_EntityFramework.Models.Flight", "Flight")
+                        .WithMany("ClientFlights")
+                        .HasForeignKey("FlightId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Flight");
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Airplane", b =>
                 {
                     b.Navigation("Flights");
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Client", b =>
+                {
+                    b.Navigation("ClientFlights");
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Credential", b =>
+                {
+                    b.Navigation("Client")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("_05_EntityFramework.Models.Flight", b =>
+                {
+                    b.Navigation("ClientFlights");
                 });
 #pragma warning restore 612, 618
         }

@@ -20,6 +20,10 @@ namespace _07_AirportUI
         AirportDbContext dbContext;
         public MainWindow()
         {
+            int a = 5;//not null
+            int? b = null;
+            string s = null;//null  xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
             InitializeComponent();
             dbContext = new AirportDbContext();
         }
